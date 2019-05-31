@@ -17,6 +17,10 @@ class Post (models.Model):
         return self.title
 
 
+class Comment (models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    text = models.TextField()
 
 
 

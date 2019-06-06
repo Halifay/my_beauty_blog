@@ -1,7 +1,7 @@
 {% if latest_posts_list %}
     <ul>
     {% for post in latest_posts_list %}
-        <li><a href="{% url 'post_info' post.id %}">{{ post.title }}</a></li>
+        <li><a href="{% url 'blog:post_info' post.id %}">{{ post.title }}</a></li>
         <a>{{post.text}}</a>
     {% endfor %}
     </ul>

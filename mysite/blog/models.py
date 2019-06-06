@@ -22,5 +22,10 @@ class Comment (models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     text = models.TextField()
 
+    def publish(self):
+        self.save()
+
+
+
 
 

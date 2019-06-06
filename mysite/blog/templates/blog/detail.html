@@ -1,7 +1,10 @@
-<hi>{{post.title}}</hi>
-<hi>{{post.text}}</hi>
+<h2>{{post.title}}</h2>
+<h3>{{post.text}}</h3>
+<textarea></textarea>
+<button >SAVE</button>
 <ul>
 {% for comment in post.comment_set.all %}
-    <li>{{comment.text}}</li>
+    <li>{{comment.author}}<br/>
+        {{comment.text}}</li>
 {% endfor %}
 </ul>

@@ -19,13 +19,14 @@ class Post (models.Model):
 
 class Comment (models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    #author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     text = models.TextField()
 
     def publish(self):
         self.save()
 
-
+    def __str__(self):
+        return self.text
 
 
 

@@ -1,5 +1,9 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
 <h2>{{post.title}}</h2>
 <h3>{{post.text}}</h3>
+<link/>
 
 {% if error_message %} <p><strong>{{error_message}}</strong></p>{% endif %}
 

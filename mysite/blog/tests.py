@@ -40,6 +40,20 @@ class PostIndexViewTests(TestCase):
                                   '<Post: Post 1>'])
 
 
+class PostDetailViewTests(TestCase):
+    def test_future_post(self):
+        future_post = create_post('Future', "I'm from future.", 5)
+        url = reverse('blog:post_info', args=(future_post.id, ))
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+
+    def test_past_post(self):
+        past_post = create_post('Past', "I'm from past.", -5)
+        url = reverse('blog:post_info', args=(past_post.id, ))
+        response = self.client.get(url)
+        self.assertContains(response, past_post.title)
+
+
 class PostTests(TestCase):
 
     def test_was_published_recently_with_future_post(self):

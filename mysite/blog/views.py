@@ -19,6 +19,9 @@ class PostView(generic.DetailView):
     model = Post
     template_name = 'blog/detail.html'
 
+    def get_queryset(self):
+        return Post.objects.filter(published_date__lte=timezone.now())
+
 
 def leave_a_comment(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
